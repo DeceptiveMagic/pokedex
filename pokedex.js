@@ -21,7 +21,7 @@ function showMenu(){
 }
 
 function prompt(cb){
-	rl.question("Please enter command number: ", (number))
+	rl.question("Please enter command number: ", (number) => {
 	switch (number){
 		case 1:	
 			rl.question("Please enter Pokemon Name: ", (response))
@@ -32,8 +32,8 @@ function prompt(cb){
 		case 3:	
 			rl.question("Please enter Item Name: ", (response))
 		break;
-	}
-}
+	}}
+});
 
 function searchPoke(term){
 	

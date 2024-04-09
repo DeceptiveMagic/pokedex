@@ -3,14 +3,14 @@ const readline = require("readline");
 // Setup readline to listen on the stdin stream
 const rl = readline.createInterface(process.stdin, process.stdout);
 //setup the response
-const response;
+const response = "";
 
 
 //The start to all API fetch requests:
 //https://pokeapi.co/api/v2/
 const apiSetup = "https://pokeapi.co/api/v2/";
 
-const number;
+const number = 0;
 
 function showMenu(){
 	console.log("***************************************");
@@ -36,7 +36,7 @@ function prompt(cb){
 			searchItem(response);
 		break;
 	}}
-});
+)};
 
 function searchPoke(term){
 	printPoke(fetch(`apiSetup + "pokemon/" + term`));
@@ -69,7 +69,9 @@ function printMove(json){
 }
 
 function run(){
-	showMenu() => {
-		prompt();
-		}
+	showMenu();
+	rl.question("Please enter command number: ", (number));
+	promt(number);
 }
+
+run();

@@ -70,8 +70,10 @@ function printMove(json){
 
 function run(){
 	showMenu();
-	rl.question("Please enter command number: ", (number));
-	promt(number);
+	rl.question("Please enter command number: ", (number)).then(
+		console.log(number);
+		prompt(number);
+	);
 }
 
 run();

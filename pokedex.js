@@ -24,19 +24,22 @@ function prompt(cb){
 	rl.question("Please enter command number: ", (number) => {
 	switch (number){
 		case 1:	
-			rl.question("Please enter Pokemon Name: ", (response))
+			rl.question("Please enter Pokemon Name: ", (response));
+			searchPoke(response)
 		break;
 		case 2:	
-			rl.question("Please enter Pokemon Move: ", (response))
+			rl.question("Please enter Pokemon Move: ", (response));
+			searchMove(response);
 		break;
 		case 3:	
-			rl.question("Please enter Item Name: ", (response))
+			rl.question("Please enter Item Name: ", (response));
+			searchItem(response);
 		break;
 	}}
 });
 
 function searchPoke(term){
-	
+	printPoke(fetch(`apiSetup + "pokemon/" + term`));
 }
 
 function printPoke(json){

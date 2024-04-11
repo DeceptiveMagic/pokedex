@@ -1,3 +1,7 @@
+import fetch from "node-fetch";
+
+
+
 // Load the readline library
 const readline = require("readline");
 // Setup readline to listen on the stdin stream
@@ -25,11 +29,11 @@ function showMenu(){
 		prompt(searchPoke)
 	}
 
-	if (number == 2){
+	else if (number == 2){
 		prompt(searchMove);
 	}
 
-	if (number == 3){
+	else if (number == 3){
 		prompt(searchItem);
 	}
 

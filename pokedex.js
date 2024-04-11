@@ -18,25 +18,28 @@ function showMenu(){
 	console.log("2: Search Move");
 	console.log("3: Search Item");
 	console.log("***************************************");
-}
-
-function prompt(cb){
 	rl.question("Please enter command number: ", (number) => {
-	switch (number){
+	console.log(number);
+
+	switch(number){
 		case 1:	
-			rl.question("Please enter Pokemon Name: ", (response));
-			searchPoke(response)
+			prompt(searchPoke);
 		break;
 		case 2:	
-			rl.question("Please enter Pokemon Move: ", (response));
-			searchMove(response);
+			prompt(searchMove);
 		break;
 		case 3:	
-			rl.question("Please enter Item Name: ", (response));
-			searchItem(response);
+			prompt(searchItem);
 		break;
-	}}
-)};
+		}
+	});
+}
+
+function prompt(cb){	
+	rl.question("Please enter search term: \n", (term) => { 
+		cb(term);
+	});
+}
 
 function searchPoke(term){
 	//first fetch
@@ -80,10 +83,5 @@ function printMove(json){
 
 function run(){
 	showMenu();
-	rl.question("Please enter command number: ", (number)).then(
-		console.log(number).then(
-			prompt(number))
-	);
 }
-
 run();

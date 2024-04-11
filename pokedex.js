@@ -39,7 +39,17 @@ function prompt(cb){
 )};
 
 function searchPoke(term){
-	printPoke(fetch(`apiSetup + "pokemon/" + term`));
+	//first fetch
+	fetch(`apiSetup + "pokemon/" + term`)
+	//then store the response json
+	.then(
+		(response) =>
+		response.json()
+	//then call print on the json
+	).then(
+		(data) =>
+		printPoke(data)
+	);
 }
 
 function printPoke(json){
@@ -71,8 +81,8 @@ function printMove(json){
 function run(){
 	showMenu();
 	rl.question("Please enter command number: ", (number)).then(
-		console.log(number);
-		prompt(number);
+		console.log(number).then(
+			prompt(number))
 	);
 }
 

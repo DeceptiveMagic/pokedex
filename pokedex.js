@@ -21,18 +21,22 @@ function showMenu(){
 	rl.question("Please enter command number: ", (number) => {
 	console.log(number);
 
-	switch(number){
-		case 1:	
-			prompt(searchPoke);
-		break;
-		case 2:	
-			prompt(searchMove);
-		break;
-		case 3:	
-			prompt(searchItem);
-		break;
-		}
-	});
+	if (number == 1){	
+		prompt(searchPoke)
+	}
+
+	if (number == 2){
+		prompt(searchMove);
+	}
+
+	if (number == 3){
+		prompt(searchItem);
+	}
+
+	else{
+		console.log("Try again BOZO!");
+		showMenu();
+	}});
 }
 
 function prompt(cb){	

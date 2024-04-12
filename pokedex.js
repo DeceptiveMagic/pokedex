@@ -67,7 +67,17 @@ function printPoke(json){
 }
 
 function searchItem(term){
-
+	//first fetch
+	fetch(apiSetup + "item/" + term)
+	//then store the response json
+	.then(
+		(response) => { console.log("WTF?"); return response.json(); }
+	//then call print on the json
+	).then(
+		(data) =>
+		{
+			printPoke(data);
+		})
 }
 
 function printItem(json){
@@ -77,7 +87,17 @@ function printItem(json){
 }
 
 function searchMove(term){
-
+	//first fetch
+	fetch(apiSetup + "move/" + term)
+	//then store the response json
+	.then(
+		(response) => { console.log("WTF?"); return response.json(); }
+	//then call print on the json
+	).then(
+		(data) =>
+		{
+			printPoke(data);
+		})
 }
 
 function printMove(json){

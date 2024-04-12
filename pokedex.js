@@ -21,7 +21,6 @@ function showMenu(){
 	console.log("3: Search Item");
 	console.log("***************************************");
 	rl.question("Please enter command number: ", (number) => {
-	console.log(number);
 
 	if (number == 1){	
 		prompt(searchPoke)
@@ -57,8 +56,9 @@ function searchPoke(term){
 	).then(
 		(data) =>
 		{
-			printPoke(data);
-		})
+			printPoke(data);	
+		}
+	);
 }
 
 function printPoke(json){

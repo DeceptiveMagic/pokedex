@@ -1,6 +1,4 @@
-import fetch from "node-fetch";
-
-
+//import fetch from "node-fetch";
 
 // Load the readline library
 const readline = require("readline");
@@ -12,7 +10,7 @@ const response = "";
 
 //The start to all API fetch requests:
 //https://pokeapi.co/api/v2/
-const apiSetup = "https://pokeapi.co/api/v2/";
+const apiSetup = 'https://pokeapi.co/api/v2/';
 
 const number = 0;
 
@@ -51,22 +49,21 @@ function prompt(cb){
 
 function searchPoke(term){
 	//first fetch
-	fetch(`apiSetup + "pokemon/" + term`)
+	fetch(apiSetup + "pokemon/" + term)
 	//then store the response json
 	.then(
-		(response) =>
-		response.json()
+		(response) => { console.log("WTF?"); return response.json(); }
 	//then call print on the json
 	).then(
 		(data) =>
-		printPoke(data)
-	);
+		{
+			printPoke(data);
+		})
 }
 
 function printPoke(json){
-	(json) => {
-		console.log(json);
-	}	
+	console.log(json);
+	run();
 }
 
 function searchItem(term){

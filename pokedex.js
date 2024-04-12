@@ -52,7 +52,7 @@ function searchPoke(term){
 	fetch(apiSetup + "pokemon/" + term)
 	//then store the response json
 	.then(
-		(response) => { console.log("WTF?"); return response.json(); }
+		(response) => { return response.json(); }
 	//then call print on the json
 	).then(
 		(data) =>
@@ -62,7 +62,16 @@ function searchPoke(term){
 }
 
 function printPoke(json){
-	console.log(json);
+	//print name, weight, height, base experience, and all moves
+	console.log("Name: " + json.name);
+	console.log("Weight: " + json.weight);
+	console.log("Height: " + json.height);
+	console.log("Base Experience: " + json.base_experience);
+	//print all moves	
+	for (let i = 0; i < json.moves.length; i++){
+		console.log("Moves: " + json.moves[i].move.name);
+	}
+	//repeat
 	run();
 }
 
@@ -71,19 +80,23 @@ function searchItem(term){
 	fetch(apiSetup + "item/" + term)
 	//then store the response json
 	.then(
-		(response) => { console.log("WTF?"); return response.json(); }
+		(response) => { return response.json(); }
 	//then call print on the json
 	).then(
 		(data) =>
 		{
-			printPoke(data);
+			printItem(data);
 		})
 }
 
 function printItem(json){
-	(json) => {
-		console.log(json);
-	}	
+	//print name, ...
+	console.log("Name: " + json.name);
+	console.log("Category: " + json.category.name);
+	console.log("Attributes: " + json.attributes[0].name + ", " + json.attributes[1].name + ", " + json.attributes[2].name);
+	console.log("Cost: " + json.cost);
+	//repeat
+	run();
 }
 
 function searchMove(term){
@@ -91,19 +104,24 @@ function searchMove(term){
 	fetch(apiSetup + "move/" + term)
 	//then store the response json
 	.then(
-		(response) => { console.log("WTF?"); return response.json(); }
+		(response) => { return response.json(); }
 	//then call print on the json
 	).then(
 		(data) =>
 		{
-			printPoke(data);
+			printMove(data);
 		})
 }
 
 function printMove(json){
-	(json) => {
-		console.log(json);
-	}	
+	//print name, type, power, pp, and priority
+	console.log("Name: " + json.name);
+	console.log("Type: " + json.type.name);
+	console.log("Power: " + json.power);
+	console.log("PP: " + json.pp);
+	console.log("Priority: " + json.priority);
+	//repeat
+	run();
 }
 
 function run(){
